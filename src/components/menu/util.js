@@ -1,5 +1,5 @@
 const getMenuProps = (pathname, menuData) => {
-  let selectedKeys = pathname
+  let selectedKeys = [pathname]
   let openKeys
   const flat = (list, parentArr = []) => {
     list.forEach(item => {
@@ -21,10 +21,10 @@ const getMenuProps = (pathname, menuData) => {
 
   // 不在菜单展示的路由
   if (!openKeys) {
-    // '/page1/list1/detail/1' ['/page1']  '/page1/list1'
+    // '/page1/list1/detail/1' ['/page1']  ['/page1/list1']
     const arr = pathname.split('/')
-    openKeys = '/' + arr[1]
-    selectedKeys = '/' + arr[1] + '/' + arr[2]
+    openKeys = ['/' + arr[1]]
+    selectedKeys = ['/' + arr[1] + '/' + arr[2]]
   }
   return {
     selectedKeys, // 选中的子菜单

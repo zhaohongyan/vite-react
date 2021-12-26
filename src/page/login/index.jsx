@@ -12,7 +12,7 @@ export default () => {
     const { username, password } = values
     if (username === 'zhangsan' && password === '123') {
       localStorage.setItem('userInfo', JSON.stringify(values))
-      na('/')
+      na('/', { replace: true })
     } else {
       message.error('username: zhangsan, password: 123')
     }

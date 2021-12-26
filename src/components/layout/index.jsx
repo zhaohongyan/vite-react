@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { Layout } from 'antd'
 
@@ -13,6 +14,13 @@ export default () => {
     localStorage.removeItem('userInfo')
     na('/login')
   }
+
+  useEffect(() => {
+    const { username } = JSON.parse(localStorage.getItem('userInfo')) || {}
+    if (!username) {
+      na('/login')
+    }
+  })
 
   const userInfo = JSON.parse(localStorage.getItem('userInfo')) || {}
   const { username } = userInfo

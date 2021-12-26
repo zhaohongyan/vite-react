@@ -7,12 +7,11 @@ const { SubMenu } = Menu;
 
 export default () => {
   const [openKeys, setOpenKeys] = useState([])
-  const [selectedKeys, setSelectedKeys] = useState('')
+  const [selectedKeys, setSelectedKeys] = useState([])
   let navigate = useNavigate();
   const location = useLocation()
 
   useEffect(() => {
-    // console.log(location)
     let { openKeys, selectedKeys } = getMenuProps(location.pathname, menuData)
     setOpenKeys(openKeys)
     setSelectedKeys(selectedKeys)
@@ -37,12 +36,12 @@ export default () => {
   }
 
   const handleItem = (item) => {
-    setSelectedKeys(item.path)
+    setSelectedKeys([item.path])
     navigate(item.path)
   }
 
   const handleClick = ({ item, key, keyPath, domEvent }) => {
-    setSelectedKeys(key)
+    setSelectedKeys([key])
   }
 
   const onOpenChange = (openKeys) => {
