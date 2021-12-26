@@ -1,0 +1,44 @@
+.container {
+  :global {
+    .ant-layout-header {
+      height: 48px;
+      line-height: 48px;
+      background-color: @primary-color;
+      color: var(--adm-color-white);
+    }
+    .ant-layout-content {
+      padding: 24px;
+    }
+  }
+  .logo {
+    // font-size: 24px;
+    height: 48px;
+    line-height: 48px;
+    background-color: var(--adm-color-warning);
+    color: var(--adm-color-white);
+    text-align: center;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_left {
+      flex: 1;
+    }
+    &_right {
+      flex: 1;
+      text-align: right;
+      .user {
+        margin: 0 10px;
+      }
+      .logout {
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    min-height: 100%;
+    background-color: var(--adm-color-white);
+  }
+}
