@@ -8,6 +8,18 @@
     }
     .ant-layout-content {
       padding: 24px;
+      min-height: calc(100vh - 48px);
+      overflow: initial;
+    }
+    .ant-layout-sider {
+      overflow: auto;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      border-right: 1px solid var(--adm-border-color2);
+      .ant-menu-inline {
+        border-right: none;
+      }
     }
   }
   .logo {

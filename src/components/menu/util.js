@@ -1,6 +1,10 @@
-const getMenuProps = (pathname, menuData) => {
-  let selectedKeys = [pathname]
-  let openKeys
+import { matchRoutes } from 'react-router-dom'
+import routes from '@/routes'
+
+const getMenuProps = (location, menuData) => {
+  const { pathname } = location
+  let selectedKeys, openKeys, menuPath
+  // 递归函数
   const flat = (list, parentArr = []) => {
     list.forEach(item => {
       item.parentArr = (parentArr || []).concat(item.path)
@@ -8,24 +12,26 @@ const getMenuProps = (pathname, menuData) => {
         flat(item.children, item.parentArr)
       }
 
-      if (item.path === pathname) {
+      if (item.path === menuPath) {
         openKeys = item.parentArr.slice(0, -1)
+        selectedKeys = item.parentArr.slice(-1)
       }
-
     });
   }
 
-  flat(menuData)
-
-  console.log('menuData', menuData, pathname, openKeys)
-
-  // 不在菜单展示的路由
-  if (!openKeys) {
-    // '/page1/list1/detail/1' ['/page1']  ['/page1/list1']
-    const arr = pathname.split('/')
-    openKeys = ['/' + arr[1]]
-    selectedKeys = ['/' + arr[1] + '/' + arr[2]]
+  const match = matchRoutes(routes, location)
+  const currentRoute = match.slice(-1)[0]
+  if (currentRoute.route.hidePath) { // 不在菜单中展示的路由
+    menuPath = currentRoute.route.hidePath
+    flat(menuData)
+  } else {
+    menuPath = pathname
+    flat(menuData)
   }
+
+
+  // console.log('menuData', menuData, pathname, openKeys)
+
   return {
     selectedKeys, // 选中的子菜单
     openKeys // 展开的子菜单

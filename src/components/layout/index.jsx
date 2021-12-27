@@ -27,14 +27,14 @@ export default () => {
 
   return (
     <div className={styles.container}>
-      <Layout style={{ height: '100vh' }}>
+      <Layout>
         <Sider theme="light">
           <div className={styles.logo}>
             logo
           </div>
           <Menu />
         </Sider>
-        <Layout>
+        <Layout style={{ marginLeft: 200 }}>
           <Header className={styles.header}>
             <div className={styles.header_left}></div>
             <div className={styles.header_right}>

@@ -9,6 +9,9 @@ import Page2Detail from '@/page/page2/detail'
 
 import NoMatch from '@/NoMatch'
 
+/**
+ * hidePath 绝对路径，用于计算menu selectedKeys openKeys
+ */
 const routes = [
   {
     path: "/",
@@ -24,7 +27,12 @@ const routes = [
           },
           {
             path: "list1/detail/:id",
-            element: <Page1Detail />
+            element: <Page1Detail />,
+            hidePath: '/page1/list1',
+          },
+          {
+            path: 'list1/list1',
+            element: <Page2 />,
           },
           {
             path: "list2",
@@ -32,7 +40,8 @@ const routes = [
           },
           {
             path: "list2/detail/:id",
-            element: <Page2Detail />
+            element: <Page1Detail />,
+            hidePath: '/page1/list2',
           }
         ]
       },
@@ -41,7 +50,7 @@ const routes = [
         children: [
           {
             path: "list1",
-            element: <Page2 />
+            element: <Page2 />,
           },
           {
             path: "list1/detail/:id",

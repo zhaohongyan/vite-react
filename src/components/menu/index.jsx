@@ -12,7 +12,7 @@ export default () => {
   const location = useLocation()
 
   useEffect(() => {
-    let { openKeys, selectedKeys } = getMenuProps(location.pathname, menuData)
+    let { openKeys, selectedKeys } = getMenuProps(location, menuData)
     setOpenKeys(openKeys)
     setSelectedKeys(selectedKeys)
   }, [])
@@ -28,20 +28,17 @@ export default () => {
         )
       }
       return (
-        <Menu.Item key={item.path} icon={icon} onClick={() => handleItem(item)}>
+        <Menu.Item key={item.path} icon={icon}>
           {item.title}
         </Menu.Item>
       )
     })
   }
 
-  const handleItem = (item) => {
-    setSelectedKeys([item.path])
-    navigate(item.path)
-  }
-
   const handleClick = ({ item, key, keyPath, domEvent }) => {
+    // console.log('click', item, key)
     setSelectedKeys([key])
+    navigate(key)
   }
 
   const onOpenChange = (openKeys) => {

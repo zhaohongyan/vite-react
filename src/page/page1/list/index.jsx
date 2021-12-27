@@ -3,22 +3,16 @@ import { Table } from 'antd'
 import Filter from './Filter'
 import styles from './index.module.less'
 
-const dataSource = [
-  {
-    key: '1',
-    id: 1,
+const dataSource = []
+for (var i = 0; i < 20; i++) {
+  dataSource.push({
+    key: `${i}`,
+    id: i,
     name: '胡彦斌',
-    age: 32,
+    age: i,
     address: '西湖区湖底公园1号',
-  },
-  {
-    key: '2',
-    id: 2,
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园1号',
-  },
-];
+  })
+}
 
 const columns = [
   {

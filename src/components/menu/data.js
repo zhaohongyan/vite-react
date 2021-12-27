@@ -7,7 +7,11 @@ const menuData = [
     children: [
       {
         title: '二级菜单1-1-1',
-        path: '/page1/list1'
+        path: '/page1/list1',
+        children: [{
+          title: '三级菜单',
+          path: '/page1/list1/list1'
+        }]
       },
       {
         title: '二级菜单1-1-2',
