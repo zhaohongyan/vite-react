@@ -3,7 +3,6 @@ import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { Layout } from 'antd'
 
 import Menu from '@/components/menu'
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons'
 import styles from './index.module.less'
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -38,10 +37,10 @@ export default () => {
           <Header className={styles.header}>
             <div className={styles.header_left}></div>
             <div className={styles.header_right}>
-              <UserOutlined />
+              <i className="iconfont iconuser" />
               <span className={styles.user}>{username}</span>
               <span className={styles.logout} onClick={logout}>
-                <LogoutOutlined />
+                <i className="iconfont iconlogout" />
               </span>
             </div>
           </Header>
