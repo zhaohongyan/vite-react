@@ -24,7 +24,14 @@ export default defineConfig({
     }
   },
   build: {
-
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          lodash: ['lodash'],
+          react: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+        }
+      }
+    }
   },
   server: {
     port: 8080,
