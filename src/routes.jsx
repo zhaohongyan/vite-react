@@ -30,10 +30,10 @@ const routes = [
             element: <Page1Detail />,
             hidePath: '/page1/list1',
           },
-          {
-            path: 'list1/list1',
-            element: <Page2 />,
-          },
+          // {
+          //   path: 'list1/list1',
+          //   element: <Page2 />,
+          // },
           {
             path: "list2",
             element: <Page1 />,

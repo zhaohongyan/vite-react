@@ -8,7 +8,8 @@ export default () => {
   return (
     <div className={styles.detail}>
       <h3>location: {location.pathname}</h3>
-      detail: {id}
+      {/* detail: {id} */}
+      <p>详情页面，待开发……</p>
     </div>
   )
 }
